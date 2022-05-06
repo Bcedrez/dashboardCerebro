@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+<!-- Content -->
+{% block contenido %}
+<div class="container-xxl flex-grow-1 container-p-y">
+  <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Detalle</span> {{data.0.nombres}} {{data.0.apellidos}}
+  </h4>
+
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="nav nav-pills flex-column flex-md-row mb-3">
+        <li class="nav-item">
+          <a class="nav-link active" href="javascript:void(0);"><i class="bx bx-user me-1"></i> Datos generales</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="pages-account-settings-connections.html"><i class="bx bx-link-alt me-1"></i>
+            Redes Sociales</a>
+        </li>
+      </ul>
+      <div class="card mb-4">
+        <h5 class="card-header">Perfil del ciudadano</h5>
+        <!-- Account -->
+
+        <hr class="my-0" />
+        <div class="card-body">
+          <form id="formAccountSettings" method="POST" onsubmit="return false">
+            <div class="row">
+              <div class="mb-3 col-md-6">
+                <label for="firstName" class="form-label">Nombres</label>
+                <input class="form-control" disabled type="text" id="firstName" name="firstName"
+                  value="{{data.0.nombres}}" autofocus />
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="lastName" class="form-label">Apellidos</label>
+                <input class="form-control" disabled type="text" name="lastName" id="lastName"
+                  value="{{data.0.apellidos}}" />
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="email" class="form-label">E-mail</label>
+                <input class="form-control" type="text" id="email" name="email" disabled value="jose.luis@idmdev.tech"
+                  placeholder="john.doe@example.com" />
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="organization" class="form-label" disabled>Empresa</label>
+                <input type="text" class="form-control" id="organization" name="organization" disabled
+                  value="Grupo Dimaker" />
+              </div>
+              <div class="mb-3 col-md-6">
+                <label class="form-label" for="phoneNumber">Telefóno</label>
+                <div class="input-group input-group-merge">
+
+                  <input type="text" id="phoneNumber" disabled name="phoneNumber" class="form-control"
+                    value="{{data.0.telefono}}" />
+                </div>
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="address" class="form-label">Dirección</label>
+                <input type="text" disabled class="form-control" id="address" name="address"
+                  value="16 de septiembre #387" />
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="state" class="form-label">Estado</label>
+                <input disabled class="form-control" type="text" id="state" name="state" value="Coahuila" />
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="zipCode" class="form-label">Codigo de sección</label>
+                <input type="text" disabled class="form-control" id="zipCode" name="zipCode" value="25020"
+                  maxlength="6" />
+              </div>
+              <div class="mb-3 col-md-6">
+                <label class="form-label" for="country">Municipio</label>
+                <input type="text" disabled class="form-control" id="zipCode" name="zipCode" value="Saltillo"
+                  maxlength="6" />
+
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="language" class="form-label">Estado Civil</label>
+                <input type="text" disabled class="form-control" id="zipCode" name="zipCode" value="Soltero"
+                  maxlength="6" />
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="timeZones" class="form-label">Colonia</label>
+                <input type="text" disabled class="form-control" id="zipCode" name="zipCode" value="Provivienda"
+                  maxlength="6" />
+
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="currency" class="form-label">Hijos</label>
+                <input type="text" disabled class="form-control" id="zipCode" name="zipCode" value="1" maxlength="6" />
+              </div>
+            </div>
+            <div class="mt-2">
+              <a href="{url 'home:listaRedes'}" type="submit" class="btn btn-primary me-2">Volver</a>
+
+            </div>
+          </form>
+        </div>
+        <!-- /Account -->
+      </div>
+
+      {% endblock contenido %}

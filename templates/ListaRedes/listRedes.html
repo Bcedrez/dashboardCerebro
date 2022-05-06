@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{{% block titulo %}
+Brexit - Redes
+{% endblock titulo %}
+
+
+{% block contenido %}
+
+
+<div class="table-responsive">
+
+
+     <table class="table table-hover">
+          <thead>
+               <tr>
+                    <th>Nombre(s)</th>
+                    <th>Apellidos(s)</th>
+                    <th>Estado</th>
+                    <th>Municipio</th>
+                    <th>Localidad</th>
+                    <th>Sección</th>
+                    <th>Redes</th>
+                    <th>Telefóno</th>
+               </tr>
+          </thead>
+          <tbody id="tabla registros">
+               {% for persona in data %}
+               <tr>
+                    <td>{{persona.nombres}}</td>
+                    <td>{{persona.apellidos}}</td>
+                    <td>{{persona.estado}}</td>
+                    <td>{{persona.municipio}}</td>
+                    <td>{{persona.localidad}}</td>
+                    <td>{{persona.seccion}}</td>
+
+                    {% if persona.redes %}
+                    <td><a href="{{persona.redes}}" target="_blank">{{persona.redes}}</a>
+                    </td>
+                    {% else %}
+                    <td><a href="" target="_blank">-</a>
+                    </td>
+                    {% endif %}
+
+
+                    {% if persona.telefono %}
+                    <td><a href="tel://+{{persona.telefono}}">{{persona.telefono}}</a></a></td>
+                    {% else %}
+                    <td><a href="" target="_blank">-</a>
+                    </td>
+                    {% endif %}
+
+               </tr>
+
+               {% endfor %}
+          </tbody>
+     </table>
+</div>
+
+
+{% endblock contenido %}
